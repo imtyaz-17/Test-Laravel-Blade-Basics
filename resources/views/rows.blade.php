@@ -20,8 +20,7 @@
                         </thead>
                         
                         <tbody>
-                            @if(!$users->isEmpty())
-                            @foreach ($users as $index => $user)
+                            @forelse ($users as $index => $user)
                                 {{-- Task: only every second row should have "bg-red-100" --}}
                                 <tr class="{{ $index % 2 == 1 ? 'bg-red-100' : '' }}">
                                     <td>{{ $index + 1 }}{{-- Task: add row number here: 1, 2, etc. --}}</td>
@@ -30,12 +29,11 @@
                                     <td class="{{ $index == 0 ? 'font-bold' : '' }}">{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
                                 </tr>
-                            @endforeach
-                        @else
-                            <tr>
-                                <td colspan="3">No content.</td>
-                            </tr>
-                        @endif
+                            @empty
+                                <tr>
+                                    <td colspan="3">No content.</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
