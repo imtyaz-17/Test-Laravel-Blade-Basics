@@ -18,7 +18,7 @@
                             </tr>
                         </thead>
                         {{-- Task: add the loop here to show users, or the row "No content" --}}
-                        @if($users)
+                        @if(!$users->isEmpty())
                         <tbody>
                             @foreach($users as $user)
                             <tr>
@@ -26,11 +26,13 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->created_at }}</td>
                             </tr>
+                             @endforeach
                         @else
                             <tr>
                                 <td colspan="3">No content.</td>
                             </tr>
                         </tbody>
+                        @endif
                     </table>
                 </div>
             </div>
