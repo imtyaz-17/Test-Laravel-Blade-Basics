@@ -18,8 +18,9 @@
                             </tr>
                         </thead>
                         {{-- Task: add the loop here to show users, or the row "No content" --}}
-                        @if(!$users->isEmpty())
+                        
                         <tbody>
+                            @if(!$users->isEmpty())
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->name }}</td>
